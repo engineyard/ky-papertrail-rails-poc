@@ -1,0 +1,7 @@
+files:
+  - /app/log/*
+destination:
+  host: <%= ENV["papertrail_host"] %>
+  port: <%= ENV["papertrail_port"] %>
+  protocol: tls
+exclude_patterns:

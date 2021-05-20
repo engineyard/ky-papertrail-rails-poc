@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  papertrail-rails:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - papertrail_host=xxxx
+        - papertrail_port=xxxx 
+    container_name: papertrail-rails
+    command: bash -c "remote_syslog && bundle exec rails s -b 0.0.0.0 -p 5000"
+    environment:
+      - RAILS_LOG_TO_STDOUT=true
+    ports:
+      - 5000:5000
